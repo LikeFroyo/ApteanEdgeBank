@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ApteanEdgeBank" Class="ApteanEdgeBankMasterDatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=ApteanEdgeBank;Integrated Security=True" SettingsObjectName="ApteanEdgeBankDataLayer.Properties.Settings" SettingsPropertyName="ApteanEdgeBankConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Account" Member="Accounts">
+    <Type Name="Account">
+      <Column Name="AccountId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CustomerId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="BranchId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalBalance" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="AccountOpenedDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="AccountType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StatusAccount" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="ApteanBankBranch_Account" Member="ApteanBankBranch" ThisKey="BranchId" OtherKey="BranchId" Type="ApteanBankBranch" IsForeignKey="true" />
+      <Association Name="Customer_Account" Member="Customer" ThisKey="CustomerId" OtherKey="CustomerId" Type="Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ApteanBankBranch" Member="ApteanBankBranches">
+    <Type Name="ApteanBankBranch">
+      <Column Name="BranchId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BranchName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalBalance" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="ApteanBankBranch_Account" Member="Accounts" ThisKey="BranchId" OtherKey="BranchId" Type="Account" />
+      <Association Name="ApteanBankBranch_Customer" Member="Customers" ThisKey="BranchId" OtherKey="customerBranchId" Type="Customer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customer" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="CustomerId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CustomerName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOpened" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="customerBranchId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Customer_Account" Member="Accounts" ThisKey="CustomerId" OtherKey="CustomerId" Type="Account" />
+      <Association Name="ApteanBankBranch_Customer" Member="ApteanBankBranch" ThisKey="customerBranchId" OtherKey="BranchId" Type="ApteanBankBranch" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

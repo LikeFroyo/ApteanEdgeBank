@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApteanEdgeBank", "ApteanEdgeBank\ApteanEdgeBank.csproj", "{2F305D49-3E5F-4F6B-87BB-BEC87999F0FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F305D49-3E5F-4F6B-87BB-BEC87999F0FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F305D49-3E5F-4F6B-87BB-BEC87999F0FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F305D49-3E5F-4F6B-87BB-BEC87999F0FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F305D49-3E5F-4F6B-87BB-BEC87999F0FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A67F738C-32A7-47FB-AA96-7E8C73614185}
+	EndGlobalSection
+EndGlobal
