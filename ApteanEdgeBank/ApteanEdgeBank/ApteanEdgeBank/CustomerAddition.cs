@@ -27,7 +27,7 @@ namespace ApteanEdgeBank
             }
             else
             {
-                MessageBox.Show("DataBase Connection Issue"); 
+                MessageBox.Show("DataBase Connection Issue");
                 this.Close();
             }
         }

@@ -39,7 +39,7 @@ namespace ApteanEdgeBank
                     this.mainPanel.Visible = true;
                     this.AccountSearch.Enabled = false;
                     this.Search.Enabled = false;
-                    
+
                     if (accountSearch.AccountType == 1)
                         accountType.Text = "Chequing Account";
                     else if (accountSearch.AccountType == 2)
@@ -51,6 +51,7 @@ namespace ApteanEdgeBank
                         transactionTypeBox.Items.Clear();
                         transactionTypeBox.Items.AddRange(new object[] { "Repay Loan", "Issue Loan" });
                     }
+                    this.transactionTypeBox.SelectedIndex = 0;
                 }
             }
         }
@@ -69,18 +70,22 @@ namespace ApteanEdgeBank
                 if (account.AccountType == 1)
                 {
                     accountDL.AccountCreditOrWithdraw(account.AccountId, amount);
+                    MessageBox.Show("Account Credited Successfully");
                 }
                 else if (account.AccountType == 2)
                 {
                     if (account.TotalBalance + amount > 5000)
                         MessageBox.Show("Exceeding Bank Limit");
                     else
+                    {
                         accountDL.AccountCreditOrWithdraw(account.AccountId, amount);
+                        MessageBox.Show("Account Credited Successfully");
+                    }
                 }
                 else
                 {
                     double interest = amount * 0.1;
-                    if (account.TotalBalance - (amount - interest) > 0)
+                    if (account.TotalBalance - (amount - interest) >= 0)
                     {
                         accountDL.Repay(account.AccountId, amount);
                         MessageBox.Show("Loan Repayed!!");
@@ -95,19 +100,26 @@ namespace ApteanEdgeBank
                 if (account.AccountType == 3)
                 {
                     accountDL.Issue(account.AccountId, -amount);
-                    MessageBox.Show("Loan Issued!!!");     
+                    MessageBox.Show("Loan Issued!!!");
                 }
-                else if(account.TotalBalance - amount >= 0)
+                else if (account.TotalBalance - amount >= 0)
                 {
                     accountDL.AccountCreditOrWithdraw(account.AccountId, -amount);
                     MessageBox.Show("Withdrawn Complete!!!");
-        
+
                 }
                 else
                 {
                     MessageBox.Show("Insufficient Balance In Account!!!");
                 }
             }
+            else
+            {
+                MessageBox.Show("Insufficient Balance In Branch!!!");
+            }
+
+            account = accountDL.GetAccountDetail(Int64.Parse(AccountSearch.Text));
+            this.totalAmount.Text = account.TotalBalance.ToString();
         }
     }
 }

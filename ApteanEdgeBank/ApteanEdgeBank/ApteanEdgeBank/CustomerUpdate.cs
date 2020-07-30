@@ -1,7 +1,7 @@
-﻿using System;
+﻿using ApteanEdgeBankDataLayer;
+using System;
 using System.Linq;
 using System.Windows.Forms;
-using ApteanEdgeBankDataLayer;
 
 namespace ApteanEdgeBank
 {
@@ -20,7 +20,7 @@ namespace ApteanEdgeBank
             {
                 MessageBox.Show("Invalid Arguments!!!");
             }
-            else 
+            else
             {
                 var customerReturned = customerDL.GetCustomerDetail(Int64.Parse(customerSearchTextBox.Text));
                 if (customerReturned == null)
@@ -36,7 +36,7 @@ namespace ApteanEdgeBank
                     this.DateJoinedPicker.Value = customerReturned.DateOpened;
                     this.BranchComboBox.SelectedIndex = customerReturned.customerBranchId - 1;
                 }
-            }   
+            }
         }
 
         public void Update_mode(bool status)

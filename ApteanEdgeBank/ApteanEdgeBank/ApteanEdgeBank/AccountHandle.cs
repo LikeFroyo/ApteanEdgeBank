@@ -1,6 +1,5 @@
 ﻿using ApteanEdgeBankDataLayer;
 using System;
-using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -38,7 +37,7 @@ namespace ApteanEdgeBank
                     this.mainPanel.Visible = true;
                     this.AccountSearch.Enabled = false;
                     this.Search.Enabled = false;
-                    
+
                     accountBalance.Text = accountSearch.TotalBalance.ToString();
                     if (accountSearch.StatusAccount == true)
                         this.statusComboBox.SelectedIndex = 0;
@@ -61,7 +60,7 @@ namespace ApteanEdgeBank
 
             else
             {
-                if(double.Parse(accountBalance.Text)>0)
+                if (double.Parse(accountBalance.Text) > 0)
                 {
                     MessageBox.Show("Your Balance isn't Zero, No operation performed");
                     this.Close();

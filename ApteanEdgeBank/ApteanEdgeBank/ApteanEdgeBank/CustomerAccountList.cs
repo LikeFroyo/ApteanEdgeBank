@@ -19,7 +19,7 @@ namespace ApteanEdgeBank
             this.selectAccount.Visible = false;
             this.Submit.Visible = false;
         }
-        
+
         private void searchAccount_Click(object sender, EventArgs e)
         {
             searchBox.Text = searchBox.Text.Trim();
