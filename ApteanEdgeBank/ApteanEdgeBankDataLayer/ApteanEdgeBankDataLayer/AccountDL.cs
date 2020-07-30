@@ -7,6 +7,7 @@ namespace ApteanEdgeBankDataLayer
     public class AccountDL
     {
         ApteanEdgeBankMasterDatabaseDataContext dbBank = new ApteanEdgeBankMasterDatabaseDataContext();
+        ActivityDL activityDL = new ActivityDL();
         public Int64 GetNewAccountId()
         {
             Int64 newAccountId = (from account in dbBank.Accounts orderby account.CustomerId descending select account).First().AccountId + 1;
@@ -54,6 +55,7 @@ namespace ApteanEdgeBankDataLayer
                 Account updateAccount = (from account in dbBank.Accounts where account.AccountId == _accountId select account).First();
                 updateAccount.StatusAccount = _statusOfAccount;
                 dbBank.SubmitChanges();
+
                 return true;
             }
             catch (Exception)
@@ -61,6 +63,20 @@ namespace ApteanEdgeBankDataLayer
                 return false;
             }
         }
+
+        public void GenerateActivity(Int64 _accountId, double _amount)
+        {
+            var transActivity = new Activity
+            {
+                AccoutId = _accountId,
+                TimeStamp = System.DateTime.Now,
+                Amount = Math.Abs(_amount),
+                ActivityCode = (_amount >= 0) ? true : false
+            };
+            dbBank.Activities.InsertOnSubmit(transActivity);
+            dbBank.SubmitChanges();
+        }
+
         public bool AccountCreditOrWithdraw(Int64 _accountId,double _amount)
         {
             try
@@ -69,6 +85,8 @@ namespace ApteanEdgeBankDataLayer
                 var branch = (from branchs in dbBank.ApteanBankBranches where branchs.BranchId == account.BranchId select branchs).First();
                 account.TotalBalance += _amount;
                 branch.TotalBalance += _amount;
+
+                this.GenerateActivity( _accountId, _amount);
                 dbBank.SubmitChanges();
                 return true;
             }
@@ -85,6 +103,8 @@ namespace ApteanEdgeBankDataLayer
                 var branch = (from branchs in dbBank.ApteanBankBranches where branchs.BranchId == account.BranchId select branchs).First();
                 account.TotalBalance -= (_amount-_amount*0.1);
                 branch.TotalBalance += _amount;
+
+                this.GenerateActivity(_accountId, _amount);
                 dbBank.SubmitChanges();
                 return true;
             }
@@ -102,6 +122,8 @@ namespace ApteanEdgeBankDataLayer
                 var branch = (from branchs in dbBank.ApteanBankBranches where branchs.BranchId == account.BranchId select branchs).First();
                 account.TotalBalance += _amount;
                 branch.TotalBalance -= _amount;
+
+                this.GenerateActivity(_accountId, _amount);
                 dbBank.SubmitChanges();
                 return true;
             }

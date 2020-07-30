@@ -33,6 +33,9 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.activityGrid = new System.Windows.Forms.DataGridView();
             this.Search = new System.Windows.Forms.TextBox();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.calculate = new System.Windows.Forms.Button();
+            this.balance = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activityGrid)).BeginInit();
             this.SuspendLayout();
@@ -43,11 +46,11 @@
             this.activityListLabel.BackColor = System.Drawing.Color.Transparent;
             this.activityListLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.activityListLabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.activityListLabel.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.activityListLabel.Font = new System.Drawing.Font("Consolas", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.activityListLabel.ForeColor = System.Drawing.SystemColors.Window;
-            this.activityListLabel.Location = new System.Drawing.Point(916, 9);
+            this.activityListLabel.Location = new System.Drawing.Point(985, 19);
             this.activityListLabel.Name = "activityListLabel";
-            this.activityListLabel.Size = new System.Drawing.Size(416, 58);
+            this.activityListLabel.Size = new System.Drawing.Size(352, 49);
             this.activityListLabel.TabIndex = 2;
             this.activityListLabel.Text = "Activity Ledger";
             // 
@@ -57,7 +60,7 @@
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(910, 712);
+            this.mainPanel.Size = new System.Drawing.Size(979, 712);
             this.mainPanel.TabIndex = 3;
             // 
             // activityGrid
@@ -69,18 +72,50 @@
             this.activityGrid.Location = new System.Drawing.Point(0, 0);
             this.activityGrid.Name = "activityGrid";
             this.activityGrid.ReadOnly = true;
-            this.activityGrid.RowHeadersWidth = 62;
+            this.activityGrid.RowHeadersWidth = 65;
             this.activityGrid.RowTemplate.Height = 28;
-            this.activityGrid.Size = new System.Drawing.Size(910, 712);
+            this.activityGrid.Size = new System.Drawing.Size(979, 712);
             this.activityGrid.TabIndex = 0;
             // 
             // Search
             // 
             this.Search.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Search.Location = new System.Drawing.Point(966, 91);
+            this.Search.Location = new System.Drawing.Point(985, 81);
             this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(322, 45);
+            this.Search.Size = new System.Drawing.Size(352, 45);
             this.Search.TabIndex = 4;
+            this.Search.Click += new System.EventHandler(this.Search_Click);
+            this.Search.TextChanged += new System.EventHandler(this.Search_TextChanged);
+            // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(985, 146);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(352, 388);
+            this.listView1.TabIndex = 5;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // calculate
+            // 
+            this.calculate.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calculate.Location = new System.Drawing.Point(1064, 554);
+            this.calculate.Name = "calculate";
+            this.calculate.Size = new System.Drawing.Size(196, 49);
+            this.calculate.TabIndex = 6;
+            this.calculate.Text = "Calculate";
+            this.calculate.UseVisualStyleBackColor = true;
+            // 
+            // balance
+            // 
+            this.balance.AutoSize = true;
+            this.balance.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.balance.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.balance.Location = new System.Drawing.Point(1085, 626);
+            this.balance.Name = "balance";
+            this.balance.Size = new System.Drawing.Size(158, 42);
+            this.balance.TabIndex = 7;
+            this.balance.Text = "balance";
             // 
             // ActivityLedger
             // 
@@ -88,12 +123,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1344, 712);
+            this.Controls.Add(this.balance);
+            this.Controls.Add(this.calculate);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.Search);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.activityListLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ActivityLedger";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ActivityLedger";
             this.Load += new System.EventHandler(this.ActivityLedger_Load);
             this.mainPanel.ResumeLayout(false);
@@ -109,5 +150,8 @@
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.DataGridView activityGrid;
         private System.Windows.Forms.TextBox Search;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button calculate;
+        private System.Windows.Forms.Label balance;
     }
 }
