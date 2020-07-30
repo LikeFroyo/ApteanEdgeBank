@@ -61,6 +61,7 @@ namespace ApteanEdgeBank
                             if (item.AccountType == 3)
                                 this.accountTypeComboBox.Items.Remove("Liability Account");
                         }
+                        this.accountTypeComboBox.SelectedIndex = 0;
                     }
                 }
             }

@@ -37,6 +37,7 @@ namespace ApteanEdgeBank
                 else
                 {
                     this.searchAccount.Enabled = false;
+                    this.searchBox.Enabled = false;
                     this.selectAccount.Visible = true;
                     this.Submit.Visible = true;
                     foreach (var item in customerAccounts)

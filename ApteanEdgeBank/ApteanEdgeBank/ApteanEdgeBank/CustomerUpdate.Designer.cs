@@ -161,7 +161,7 @@
             this.checkUpdate.TabIndex = 10;
             this.checkUpdate.Text = "Update Detail";
             this.checkUpdate.UseVisualStyleBackColor = true;
-            this.checkUpdate.Click += new System.EventHandler(this.button1_Click);
+            this.checkUpdate.Click += new System.EventHandler(this.UpdateIntiate_Click);
             // 
             // CustomerUpdate
             // 

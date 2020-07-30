@@ -33,14 +33,15 @@
             this.searchAccount = new System.Windows.Forms.Button();
             this.Submit = new System.Windows.Forms.Button();
             this.selectAccount = new System.Windows.Forms.ComboBox();
+            this.customerID = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // searchBox
             // 
-            this.searchBox.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBox.Location = new System.Drawing.Point(165, 366);
+            this.searchBox.Font = new System.Drawing.Font("Consolas", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBox.Location = new System.Drawing.Point(300, 363);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(281, 45);
+            this.searchBox.Size = new System.Drawing.Size(281, 40);
             this.searchBox.TabIndex = 0;
             // 
             // searchAccount
@@ -77,12 +78,25 @@
             this.selectAccount.Size = new System.Drawing.Size(220, 45);
             this.selectAccount.TabIndex = 5;
             // 
+            // customerID
+            // 
+            this.customerID.AutoSize = true;
+            this.customerID.BackColor = System.Drawing.Color.Transparent;
+            this.customerID.Font = new System.Drawing.Font("Consolas", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customerID.ForeColor = System.Drawing.SystemColors.Window;
+            this.customerID.Location = new System.Drawing.Point(84, 366);
+            this.customerID.Name = "customerID";
+            this.customerID.Size = new System.Drawing.Size(210, 33);
+            this.customerID.TabIndex = 6;
+            this.customerID.Text = "Customer ID: ";
+            // 
             // CustomerAccountList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(618, 724);
+            this.Controls.Add(this.customerID);
             this.Controls.Add(this.selectAccount);
             this.Controls.Add(this.Submit);
             this.Controls.Add(this.searchAccount);
@@ -107,5 +121,6 @@
         private System.Windows.Forms.Button Submit;
         private System.Windows.Forms.ComboBox selectAccount;
         private int accountType;
+        private System.Windows.Forms.Label customerID;
     }
 }

@@ -31,6 +31,7 @@ namespace ApteanEdgeBank
                 {
                     this.search.Enabled = false;
                     this.customerSearchTextBox.Enabled = false;
+                    this.checkUpdate.Enabled = true;
 
                     this.customerNameTextBox.Text = customerReturned.CustomerName;
                     this.DateJoinedPicker.Value = customerReturned.DateOpened;
@@ -70,9 +71,10 @@ namespace ApteanEdgeBank
         private void CustomerUpdate_Load_1(object sender, EventArgs e)
         {
             this.Update_mode(false);
+            this.checkUpdate.Enabled = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void UpdateIntiate_Click(object sender, EventArgs e)
         {
             this.Update_mode(true);
             this.checkUpdate.Visible = false;
