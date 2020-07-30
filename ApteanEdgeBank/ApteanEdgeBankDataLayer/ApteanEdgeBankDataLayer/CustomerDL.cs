@@ -82,6 +82,7 @@ namespace ApteanEdgeBankDataLayer
                 return null;
             }
         }
+        //GetUserAccounts
         public IQueryable<Account> GetCustomerAccount(Int64 _customerId)
         {
             try
