@@ -63,63 +63,67 @@ namespace ApteanEdgeBank
             if (!double.TryParse(balance.Text, out amount))
             {
                 MessageBox.Show("Invalid Arguements");
+                this.Close();
             }
-
-            if (transactionTypeBox.SelectedIndex == 0)
+            else
             {
-                if (account.AccountType == 1)
+                if (transactionTypeBox.SelectedIndex == 0)
                 {
-                    accountDL.AccountCreditOrWithdraw(account.AccountId, amount);
-                    MessageBox.Show("Account Credited Successfully");
-                }
-                else if (account.AccountType == 2)
-                {
-                    if (account.TotalBalance + amount > 5000)
-                        MessageBox.Show("Exceeding Bank Limit");
-                    else
+                    if (account.AccountType == 1)
                     {
                         accountDL.AccountCreditOrWithdraw(account.AccountId, amount);
                         MessageBox.Show("Account Credited Successfully");
                     }
-                }
-                else
-                {
-                    double interest = amount * 0.1;
-                    if (account.TotalBalance - (amount - interest) >= 0)
+                    else if (account.AccountType == 2)
                     {
-                        accountDL.Repay(account.AccountId, amount);
-                        MessageBox.Show("Loan Repayed!!");
+                        if (account.TotalBalance + amount > 5000)
+                            MessageBox.Show("Exceeding Bank Limit");
+                        else
+                        {
+                            accountDL.AccountCreditOrWithdraw(account.AccountId, amount);
+                            MessageBox.Show("Account Credited Successfully");
+                        }
                     }
                     else
-                        MessageBox.Show("Exceeding Bank Limit");
+                    {
+                        double interest = amount * 0.1;
+                        if (account.TotalBalance - (amount - interest) >= 0)
+                        {
+                            accountDL.Repay(account.AccountId, amount);
+                            MessageBox.Show("Loan Repayed!!");
+                        }
+                        else
+                            MessageBox.Show("Exceeding Bank Limit");
+                    }
                 }
-            }
 
-            else if (branchDL.GetBranchTotalBalance(account.BranchId) - amount >= 0)
-            {
-                if (account.AccountType == 3)
+                else if (branchDL.GetBranchTotalBalance(account.BranchId) - amount >= 0)
                 {
-                    accountDL.Issue(account.AccountId, amount);
-                    MessageBox.Show("Loan Issued!!!");
-                }
-                else if (account.TotalBalance - amount >= 0)
-                {
-                    accountDL.AccountCreditOrWithdraw(account.AccountId, -amount);
-                    MessageBox.Show("Withdrawn Complete!!!");
+                    if (account.AccountType == 3)
+                    {
+                        accountDL.Issue(account.AccountId, amount);
+                        MessageBox.Show("Loan Issued!!!");
+                    }
+                    else if (account.TotalBalance - amount >= 0)
+                    {
+                        accountDL.AccountCreditOrWithdraw(account.AccountId, -amount);
+                        MessageBox.Show("Withdrawn Complete!!!");
 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Insufficient Balance In Account!!!");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Insufficient Balance In Account!!!");
+                    MessageBox.Show("Insufficient Balance In Branch!!!");
                 }
-            }
-            else
-            {
-                MessageBox.Show("Insufficient Balance In Branch!!!");
-            }
 
-            account = accountDL.GetAccountDetail(Int64.Parse(AccountSearch.Text));
-            this.totalAmount.Text = account.TotalBalance.ToString();
+                account = accountDL.GetAccountDetail(Int64.Parse(AccountSearch.Text));
+                this.totalAmount.Text = account.TotalBalance.ToString();
+            }
+            this.Close();
         }
     }
 }

@@ -67,7 +67,7 @@ namespace ApteanEdgeBank
                 }
                 else
                 {
-                    accountDL.AccountHandle(Int64.Parse(AccountSearch.Text), true);
+                    accountDL.AccountHandle(Int64.Parse(AccountSearch.Text), false);
                     MessageBox.Show("Account Closed Successfully!!!");
                     this.Close();
                 }

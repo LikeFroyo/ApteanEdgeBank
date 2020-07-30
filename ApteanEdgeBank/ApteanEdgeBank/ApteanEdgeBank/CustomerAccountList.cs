@@ -68,10 +68,12 @@ namespace ApteanEdgeBank
                                    "Customer ID    : " + search.CustomerId + "\n" +
                                    "Branch ID        : " + search.BranchId + "\n" +
                                    "Account Opened : " + search.AccountOpenedDate + "\n";
+            dataCustomer += "Account Status: " + ((search.StatusAccount == true) ? "Opened" : "Closed") + "\n";
             if (search.AccountType == 3)
                 dataCustomer += "Load Issued   :" + search.TotalBalance;
             else
                 dataCustomer += "Total Balance   :" + search.TotalBalance;
+            
             return dataCustomer;
         }
 

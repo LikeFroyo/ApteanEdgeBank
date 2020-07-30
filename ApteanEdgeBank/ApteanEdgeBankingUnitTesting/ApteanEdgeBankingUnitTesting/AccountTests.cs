@@ -14,7 +14,7 @@ namespace ApteanEdgeBankingUnitTesting
             bool expected = true;
             AccountDL accountDL = new AccountDL();
             //Act
-            bool actual = accountDL.AddAccount(10000000068,DateTime.Now, 1,1);
+            bool actual = accountDL.AddAccount(10000000113, DateTime.Now, 1,1);
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -26,7 +26,7 @@ namespace ApteanEdgeBankingUnitTesting
             bool expected = true;
             AccountDL accountDL = new AccountDL();
             //Act
-            bool actual = accountDL.AddAccount(10000000068, DateTime.Now, 1, 3);
+            bool actual = accountDL.AddAccount(10000000113, DateTime.Now, 1, 3);
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -50,7 +50,7 @@ namespace ApteanEdgeBankingUnitTesting
             bool expected = false;
             AccountDL accountDL = new AccountDL();
             //Act
-            bool actual = accountDL.AccountCreditOrWithdraw(10000000068, 213123123123121312321.312312);
+            bool actual = accountDL.AccountCreditOrWithdraw(10000000113, 213123123123121312321.312312);
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -63,7 +63,7 @@ namespace ApteanEdgeBankingUnitTesting
             bool expected = false;
             AccountDL accountDL = new AccountDL();
             //Act
-            bool actual = accountDL.AccountCreditOrWithdraw(10000000068, 213123);
+            bool actual = accountDL.AccountCreditOrWithdraw(10000000113, 213123);
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -75,7 +75,7 @@ namespace ApteanEdgeBankingUnitTesting
             bool expected = true;
             AccountDL accountDL = new AccountDL();
             //Act
-            bool actual = accountDL.AccountCreditOrWithdraw(10000000068, 0);
+            bool actual = accountDL.AccountCreditOrWithdraw(10000000061, 0);
             //Assert
             Assert.AreEqual(expected, actual);
         }

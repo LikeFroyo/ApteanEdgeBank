@@ -14,7 +14,7 @@ namespace ApteanEdgeBankingUnitTesting
             bool expected = true;
             CustomerDL customerDL = new CustomerDL();
             //Act
-            bool actual = customerDL.AddCustomer("TestCase First", DateTime.Now, 1);
+            bool actual = customerDL.AddCustomer("TestCase User", DateTime.Now, 1);
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -26,7 +26,7 @@ namespace ApteanEdgeBankingUnitTesting
             bool expected = false;
             CustomerDL customerDL = new CustomerDL();
             //Act
-            bool actual = customerDL.AddCustomer("TestCase First", DateTime.Now, 7);
+            bool actual = customerDL.AddCustomer("TestCase User", DateTime.Now, 7);
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -50,7 +50,7 @@ namespace ApteanEdgeBankingUnitTesting
             bool expected = true;
             CustomerDL customerDL = new CustomerDL();
             //Act
-            bool actual = customerDL.UpdateCustomer(10000000069, "TestCas", DateTime.Today, 1);
+            bool actual = customerDL.UpdateCustomer(10000000111, "TestCase User", DateTime.Today, 1);
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -73,7 +73,7 @@ namespace ApteanEdgeBankingUnitTesting
             //Arrange
             CustomerDL customerDL = new CustomerDL();
             //Act
-            Customer result = customerDL.GetCustomerDetail(10000000077);
+            Customer result = customerDL.GetCustomerDetail(10000000111);
             //Assert
             Assert.IsNotNull(result);
         }
@@ -84,7 +84,7 @@ namespace ApteanEdgeBankingUnitTesting
             //Arrange
             CustomerDL customerDL = new CustomerDL();
             //Act
-            var result = customerDL.GetCustomerAccount(10000000077);
+            var result = customerDL.GetCustomerAccount(10000000111);
             //Assert
             Assert.IsNotNull(result);
         }
