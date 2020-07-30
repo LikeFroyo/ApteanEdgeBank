@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 
 namespace ApteanEdgeBank
@@ -13,12 +14,6 @@ namespace ApteanEdgeBank
             InitializeComponent();
         }
         CustomerDL customerDL = new CustomerDL();
-
-        private void CustomerAccountList_Load(object sender, EventArgs e)
-        {
-            this.selectAccount.Visible = false;
-            this.Submit.Visible = false;
-        }
 
         private void searchAccount_Click(object sender, EventArgs e)
         {
@@ -38,8 +33,7 @@ namespace ApteanEdgeBank
                 {
                     this.searchAccount.Enabled = false;
                     this.searchBox.Enabled = false;
-                    this.selectAccount.Visible = true;
-                    this.Submit.Visible = true;
+                    this.mainPanel.Visible = true;
                     foreach (var item in customerAccounts)
                     {
                         if (item.AccountType == 1)
@@ -49,11 +43,12 @@ namespace ApteanEdgeBank
                         else if (item.AccountType == 3)
                             this.selectAccount.Items.Add("Liability");
                     }
+                    this.selectAccount.SelectedIndex = 0;
                 }
             }
         }
 
-        private string DataOfCustomer()
+        private void DataOfCustomer()
         {
             var customerAccounts = customerDL.GetCustomerAccount(Int64.Parse(searchBox.Text));
             if (this.selectAccount.SelectedItem.ToString() == "Chequing")
@@ -63,24 +58,16 @@ namespace ApteanEdgeBank
             else if (this.selectAccount.SelectedItem.ToString() == "Liability")
                 this.accountType = 3;
 
+
             var search = (from account in customerAccounts where this.accountType == account.AccountType select account).First();
-            string dataCustomer = "Account ID      : " + search.AccountId + "\n" +
-                                   "Customer ID    : " + search.CustomerId + "\n" +
-                                   "Branch ID        : " + search.BranchId + "\n" +
-                                   "Account Opened : " + search.AccountOpenedDate + "\n";
-            dataCustomer += "Account Status: " + ((search.StatusAccount == true) ? "Opened" : "Closed") + "\n";
-            if (search.AccountType == 3)
-                dataCustomer += "Load Issued   :" + search.TotalBalance;
-            else
-                dataCustomer += "Total Balance   :" + search.TotalBalance;
-            
-            return dataCustomer;
+            this.accountIdtextBox.Text = search.AccountId.ToString();
+            this.accountBalanceLabel.Text = search.TotalBalance.ToString();
+            this.accountStatusLabel.Text = ((search.StatusAccount == true) ? "Opened" : "Closed");
         }
 
-        private void submit_Click(object sender, EventArgs e)
+        private void selectAccount_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(this.DataOfCustomer());
+            this.DataOfCustomer();
         }
-
     }
 }

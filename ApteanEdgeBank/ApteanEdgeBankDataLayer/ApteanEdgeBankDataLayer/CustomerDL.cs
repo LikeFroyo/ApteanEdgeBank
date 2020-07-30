@@ -87,7 +87,7 @@ namespace ApteanEdgeBankDataLayer
         {
             try
             {
-                var customerAccounts = from account in dbBank.Accounts where account.CustomerId == _customerId && account.StatusAccount == true select account;
+                var customerAccounts = from account in dbBank.Accounts where account.CustomerId == _customerId select account;
                 return customerAccounts;
             }
             catch (Exception)
