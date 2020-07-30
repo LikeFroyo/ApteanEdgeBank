@@ -20,5 +20,22 @@ namespace ApteanEdgeBankDataLayer
                 return null;
             }
         }
+        public double Calculate(Int64 _accountId)
+        {
+            try
+            {
+                var activityList = from activity in dbBank.Activities where activity.AccoutId == _accountId select activity;
+                double balance = 0;
+                foreach(var items in activityList)
+                {
+                    balance += (double)(items.ActivityCode ? items.Amount : -items.Amount);
+                }
+                return balance;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
     }
 }
