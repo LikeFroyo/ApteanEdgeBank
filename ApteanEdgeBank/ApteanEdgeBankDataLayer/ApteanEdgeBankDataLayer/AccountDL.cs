@@ -101,7 +101,7 @@ namespace ApteanEdgeBankDataLayer
             {
                 var account = (from accounts in dbBank.Accounts where accounts.AccountId == _accountId select accounts).First();
                 var branch = (from branchs in dbBank.ApteanBankBranches where branchs.BranchId == account.BranchId select branchs).First();
-                account.TotalBalance -= (_amount-_amount*0.1);
+                account.TotalBalance -= (_amount+_amount*0.1);
                 branch.TotalBalance += _amount;
 
                 this.GenerateActivity(_accountId, _amount);
