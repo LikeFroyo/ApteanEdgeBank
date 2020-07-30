@@ -86,8 +86,7 @@ namespace ApteanEdgeBank
                     }
                     else
                     {
-                        double interest = amount * 0.1;
-                        if (account.TotalBalance - (amount - interest) >= 0)
+                        if (account.TotalBalance - amount >= 0)
                         {
                             accountDL.Repay(account.AccountId, amount);
                             MessageBox.Show("Loan Repayed!!");
@@ -96,7 +95,6 @@ namespace ApteanEdgeBank
                             MessageBox.Show("Exceeding Bank Limit");
                     }
                 }
-
                 else if (branchDL.GetBranchTotalBalance(account.BranchId) - amount >= 0)
                 {
                     if (account.AccountType == 3)
@@ -119,9 +117,6 @@ namespace ApteanEdgeBank
                 {
                     MessageBox.Show("Insufficient Balance In Branch!!!");
                 }
-
-                account = accountDL.GetAccountDetail(Int64.Parse(AccountSearch.Text));
-                this.totalAmount.Text = account.TotalBalance.ToString();
             }
             this.Close();
         }
