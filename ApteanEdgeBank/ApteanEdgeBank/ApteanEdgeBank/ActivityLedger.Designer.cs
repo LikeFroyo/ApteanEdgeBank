@@ -36,9 +36,7 @@
             this.calculateView = new System.Windows.Forms.ListView();
             this.calculate = new System.Windows.Forms.Button();
             this.balance = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.Amount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.CreditOrDebit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activityGrid)).BeginInit();
             this.SuspendLayout();
@@ -92,23 +90,21 @@
             // 
             // calculateView
             // 
-            this.calculateView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Amount,
-            this.CreditOrDebit});
+            this.calculateView.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calculateView.HideSelection = false;
             this.calculateView.Location = new System.Drawing.Point(985, 146);
             this.calculateView.Name = "calculateView";
-            this.calculateView.Size = new System.Drawing.Size(352, 388);
+            this.calculateView.Size = new System.Drawing.Size(350, 390);
             this.calculateView.TabIndex = 5;
             this.calculateView.UseCompatibleStateImageBehavior = false;
             this.calculateView.View = System.Windows.Forms.View.Tile;
             // 
             // calculate
             // 
-            this.calculate.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calculate.Location = new System.Drawing.Point(1064, 554);
+            this.calculate.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calculate.Location = new System.Drawing.Point(985, 586);
             this.calculate.Name = "calculate";
-            this.calculate.Size = new System.Drawing.Size(196, 49);
+            this.calculate.Size = new System.Drawing.Size(350, 35);
             this.calculate.TabIndex = 6;
             this.calculate.Text = "Calculate";
             this.calculate.UseVisualStyleBackColor = true;
@@ -119,18 +115,18 @@
             this.balance.AutoSize = true;
             this.balance.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.balance.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.balance.Location = new System.Drawing.Point(1089, 641);
+            this.balance.Location = new System.Drawing.Point(1087, 645);
             this.balance.Name = "balance";
             this.balance.Size = new System.Drawing.Size(158, 42);
             this.balance.TabIndex = 7;
             this.balance.Text = "balance";
             // 
-            // progressBar1
+            // progressBar
             // 
-            this.progressBar1.Location = new System.Drawing.Point(1121, 609);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(100, 23);
-            this.progressBar1.TabIndex = 8;
+            this.progressBar.Location = new System.Drawing.Point(985, 555);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(350, 25);
+            this.progressBar.TabIndex = 8;
             // 
             // ActivityLedger
             // 
@@ -138,7 +134,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1344, 712);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.balance);
             this.Controls.Add(this.calculate);
             this.Controls.Add(this.calculateView);
@@ -169,8 +165,6 @@
         private System.Windows.Forms.ListView calculateView;
         private System.Windows.Forms.Button calculate;
         private System.Windows.Forms.Label balance;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.ColumnHeader Amount;
-        private System.Windows.Forms.ColumnHeader CreditOrDebit;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }

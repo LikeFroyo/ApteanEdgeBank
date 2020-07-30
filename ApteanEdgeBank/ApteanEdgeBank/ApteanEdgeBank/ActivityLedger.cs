@@ -35,11 +35,14 @@ namespace ApteanEdgeBank
             if (activityGrid.DataSource != null)
             {
                 this.calculateView.Items.Clear();
+                string transac = "";
                 foreach(var item in activityDL.GetAllTheActivity(this.Search.Text.Trim()))
                 {
-
-                    this.calculateView.Items.Add(new ListViewItem(item.Amount.ToString()));
+                    transac = item.ActivityCode ? "Credit : +" : "Debit: -";
+                    transac += item.Amount.ToString();
+                    this.calculateView.Items.Add(new ListViewItem(transac));
                 }
+                progressBar.Value = 100;
                 this.balance.Text = activityDL.Calculate(accountID).ToString();
             }
         }
