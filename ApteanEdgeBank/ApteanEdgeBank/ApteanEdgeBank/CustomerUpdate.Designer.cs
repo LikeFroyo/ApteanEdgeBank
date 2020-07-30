@@ -180,6 +180,7 @@
             this.Controls.Add(this.customerName);
             this.Controls.Add(this.search);
             this.Controls.Add(this.customerSearchTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

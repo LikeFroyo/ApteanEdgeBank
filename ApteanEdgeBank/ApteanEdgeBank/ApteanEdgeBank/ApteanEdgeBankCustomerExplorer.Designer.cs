@@ -41,7 +41,7 @@
             this.addCustomer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.addCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addCustomer.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addCustomer.Location = new System.Drawing.Point(352, 184);
+            this.addCustomer.Location = new System.Drawing.Point(359, 224);
             this.addCustomer.Name = "addCustomer";
             this.addCustomer.Size = new System.Drawing.Size(200, 200);
             this.addCustomer.TabIndex = 1;
@@ -56,7 +56,7 @@
             this.customerList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.customerList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.customerList.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerList.Location = new System.Drawing.Point(986, 184);
+            this.customerList.Location = new System.Drawing.Point(998, 224);
             this.customerList.Name = "customerList";
             this.customerList.Size = new System.Drawing.Size(200, 200);
             this.customerList.TabIndex = 2;
@@ -71,7 +71,7 @@
             this.accountList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.accountList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.accountList.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accountList.Location = new System.Drawing.Point(76, 184);
+            this.accountList.Location = new System.Drawing.Point(75, 224);
             this.accountList.Name = "accountList";
             this.accountList.Size = new System.Drawing.Size(200, 200);
             this.accountList.TabIndex = 3;
@@ -86,7 +86,7 @@
             this.updateCustomer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.updateCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.updateCustomer.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateCustomer.Location = new System.Drawing.Point(668, 184);
+            this.updateCustomer.Location = new System.Drawing.Point(689, 224);
             this.updateCustomer.Name = "updateCustomer";
             this.updateCustomer.Size = new System.Drawing.Size(210, 200);
             this.updateCustomer.TabIndex = 4;
