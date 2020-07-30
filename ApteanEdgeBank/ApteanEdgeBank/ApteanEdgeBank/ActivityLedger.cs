@@ -1,5 +1,5 @@
-﻿using System;
-using ApteanEdgeBankDataLayer;
+﻿using ApteanEdgeBankDataLayer;
+using System;
 using System.Windows.Forms;
 
 namespace ApteanEdgeBank
