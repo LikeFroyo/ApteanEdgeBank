@@ -39,6 +39,9 @@ namespace ApteanEdgeBankDataLayer
     partial void InsertCustomer(Customer instance);
     partial void UpdateCustomer(Customer instance);
     partial void DeleteCustomer(Customer instance);
+    partial void InsertActivity(Activity instance);
+    partial void UpdateActivity(Activity instance);
+    partial void DeleteActivity(Activity instance);
     #endregion
 		
 		public ApteanEdgeBankMasterDatabaseDataContext() : 
@@ -94,6 +97,14 @@ namespace ApteanEdgeBankDataLayer
 				return this.GetTable<Customer>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Activity> Activities
+		{
+			get
+			{
+				return this.GetTable<Activity>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Account")]
@@ -115,6 +126,8 @@ namespace ApteanEdgeBankDataLayer
 		private int _AccountType;
 		
 		private bool _StatusAccount;
+		
+		private EntitySet<Activity> _Activities;
 		
 		private EntityRef<ApteanBankBranch> _ApteanBankBranch;
 		
@@ -142,6 +155,7 @@ namespace ApteanEdgeBankDataLayer
 		
 		public Account()
 		{
+			this._Activities = new EntitySet<Activity>(new Action<Activity>(this.attach_Activities), new Action<Activity>(this.detach_Activities));
 			this._ApteanBankBranch = default(EntityRef<ApteanBankBranch>);
 			this._Customer = default(EntityRef<Customer>);
 			OnCreated();
@@ -295,6 +309,19 @@ namespace ApteanEdgeBankDataLayer
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Account_Activity", Storage="_Activities", ThisKey="AccountId", OtherKey="AccoutId")]
+		public EntitySet<Activity> Activities
+		{
+			get
+			{
+				return this._Activities;
+			}
+			set
+			{
+				this._Activities.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ApteanBankBranch_Account", Storage="_ApteanBankBranch", ThisKey="BranchId", OtherKey="BranchId", IsForeignKey=true)]
 		public ApteanBankBranch ApteanBankBranch
 		{
@@ -381,6 +408,18 @@ namespace ApteanEdgeBankDataLayer
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Activities(Activity entity)
+		{
+			this.SendPropertyChanging();
+			entity.Account = this;
+		}
+		
+		private void detach_Activities(Activity entity)
+		{
+			this.SendPropertyChanging();
+			entity.Account = null;
 		}
 	}
 	
@@ -750,6 +789,205 @@ namespace ApteanEdgeBankDataLayer
 		{
 			this.SendPropertyChanging();
 			entity.Customer = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Activity")]
+	public partial class Activity : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _ActivityID;
+		
+		private long _AccoutId;
+		
+		private System.DateTime _TimeStamp;
+		
+		private bool _ActivityCode;
+		
+		private System.Nullable<double> _Amount;
+		
+		private EntityRef<Account> _Account;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnActivityIDChanging(long value);
+    partial void OnActivityIDChanged();
+    partial void OnAccoutIdChanging(long value);
+    partial void OnAccoutIdChanged();
+    partial void OnTimeStampChanging(System.DateTime value);
+    partial void OnTimeStampChanged();
+    partial void OnActivityCodeChanging(bool value);
+    partial void OnActivityCodeChanged();
+    partial void OnAmountChanging(System.Nullable<double> value);
+    partial void OnAmountChanged();
+    #endregion
+		
+		public Activity()
+		{
+			this._Account = default(EntityRef<Account>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivityID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long ActivityID
+		{
+			get
+			{
+				return this._ActivityID;
+			}
+			set
+			{
+				if ((this._ActivityID != value))
+				{
+					this.OnActivityIDChanging(value);
+					this.SendPropertyChanging();
+					this._ActivityID = value;
+					this.SendPropertyChanged("ActivityID");
+					this.OnActivityIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccoutId", DbType="BigInt NOT NULL")]
+		public long AccoutId
+		{
+			get
+			{
+				return this._AccoutId;
+			}
+			set
+			{
+				if ((this._AccoutId != value))
+				{
+					if (this._Account.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnAccoutIdChanging(value);
+					this.SendPropertyChanging();
+					this._AccoutId = value;
+					this.SendPropertyChanged("AccoutId");
+					this.OnAccoutIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeStamp", DbType="DateTime NOT NULL")]
+		public System.DateTime TimeStamp
+		{
+			get
+			{
+				return this._TimeStamp;
+			}
+			set
+			{
+				if ((this._TimeStamp != value))
+				{
+					this.OnTimeStampChanging(value);
+					this.SendPropertyChanging();
+					this._TimeStamp = value;
+					this.SendPropertyChanged("TimeStamp");
+					this.OnTimeStampChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActivityCode", DbType="Bit NOT NULL")]
+		public bool ActivityCode
+		{
+			get
+			{
+				return this._ActivityCode;
+			}
+			set
+			{
+				if ((this._ActivityCode != value))
+				{
+					this.OnActivityCodeChanging(value);
+					this.SendPropertyChanging();
+					this._ActivityCode = value;
+					this.SendPropertyChanged("ActivityCode");
+					this.OnActivityCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Float")]
+		public System.Nullable<double> Amount
+		{
+			get
+			{
+				return this._Amount;
+			}
+			set
+			{
+				if ((this._Amount != value))
+				{
+					this.OnAmountChanging(value);
+					this.SendPropertyChanging();
+					this._Amount = value;
+					this.SendPropertyChanged("Amount");
+					this.OnAmountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Account_Activity", Storage="_Account", ThisKey="AccoutId", OtherKey="AccountId", IsForeignKey=true)]
+		public Account Account
+		{
+			get
+			{
+				return this._Account.Entity;
+			}
+			set
+			{
+				Account previousValue = this._Account.Entity;
+				if (((previousValue != value) 
+							|| (this._Account.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Account.Entity = null;
+						previousValue.Activities.Remove(this);
+					}
+					this._Account.Entity = value;
+					if ((value != null))
+					{
+						value.Activities.Add(this);
+						this._AccoutId = value.AccountId;
+					}
+					else
+					{
+						this._AccoutId = default(long);
+					}
+					this.SendPropertyChanged("Account");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

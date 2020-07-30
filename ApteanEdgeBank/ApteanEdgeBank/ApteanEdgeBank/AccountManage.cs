@@ -87,7 +87,7 @@ namespace ApteanEdgeBank
                     double interest = amount * 0.1;
                     if (account.TotalBalance - (amount - interest) >= 0)
                     {
-                        accountDL.Repay(account.AccountId, amount);
+                        accountDL.Repay(account.AccountId, -amount);
                         MessageBox.Show("Loan Repayed!!");
                     }
                     else
@@ -99,7 +99,7 @@ namespace ApteanEdgeBank
             {
                 if (account.AccountType == 3)
                 {
-                    accountDL.Issue(account.AccountId, -amount);
+                    accountDL.Issue(account.AccountId, amount);
                     MessageBox.Show("Loan Issued!!!");
                 }
                 else if (account.TotalBalance - amount >= 0)

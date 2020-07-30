@@ -14,7 +14,7 @@
         <elementListCompartment Id="ffe421f5-1abd-458c-a954-38ad0773f42e" absoluteBounds="6.89, 4.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(6.875 : 4.31814697265625); (2.5 : 4.31814697265625); (2.5 : 3.40549967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.875 : 4.31814697265625); (2.5 : 4.31814697265625); (2.5 : 3.40549967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ApteanEdgeBankMasterDatabaseDataContext/ApteanBankBranch/ApteanBankBranch_Account" />
       <nodes>
         <classShapeMoniker Id="75ae1d02-a7d0-40d9-a402-2a9fa0ace13f" />
@@ -27,18 +27,31 @@
         <elementListCompartment Id="455218d8-7e6e-40b5-bca5-a60a6a7f7e80" absoluteBounds="6.7650000000000006, 1.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(6.75 : 2.03929768880208); (3.5 : 2.03929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.75 : 2.58099609375); (3.5 : 2.58099609375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ApteanEdgeBankMasterDatabaseDataContext/Customer/Customer_Account" />
       <nodes>
         <classShapeMoniker Id="a1f6d598-d2d2-4a87-aac7-5fee3034b031" />
         <classShapeMoniker Id="e453ba87-8817-449e-834f-37055ca803a7" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.8125 : 3.625); (7.8125 : 2.82859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.8125 : 3.625); (7.8125 : 2.82859537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ApteanEdgeBankMasterDatabaseDataContext/ApteanBankBranch/ApteanBankBranch_Customer" />
       <nodes>
         <classShapeMoniker Id="75ae1d02-a7d0-40d9-a402-2a9fa0ace13f" />
         <classShapeMoniker Id="a1f6d598-d2d2-4a87-aac7-5fee3034b031" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="481e00f2-d7cd-4447-bcb3-630f2d39e856" absoluteBounds="4.25, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ApteanEdgeBankMasterDatabaseDataContext/Activity" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c5f4186f-6c46-4a46-ab3a-7a7a63c249f1" absoluteBounds="4.265, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.5 : 1.76044840494792); (4.25 : 1.76044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ApteanEdgeBankMasterDatabaseDataContext/Account/Account_Activity" />
+      <nodes>
+        <classShapeMoniker Id="e453ba87-8817-449e-834f-37055ca803a7" />
+        <classShapeMoniker Id="481e00f2-d7cd-4447-bcb3-630f2d39e856" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

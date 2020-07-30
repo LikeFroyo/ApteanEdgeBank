@@ -21,5 +21,11 @@ namespace ApteanEdgeBank
             ApteanEdgeBankAccountExplorer apteanEdgeBankAccountExplorer = new ApteanEdgeBankAccountExplorer();
             apteanEdgeBankAccountExplorer.Show();
         }
+
+        private void actitivityButton_Click(object sender, EventArgs e)
+        {
+            ActivityLedger activityLedger = new ActivityLedger();
+            activityLedger.Show();
+        }
     }
 }

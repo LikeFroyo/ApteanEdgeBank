@@ -85,6 +85,7 @@
             this.CustomerListView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.CustomerListView.Size = new System.Drawing.Size(1344, 510);
             this.CustomerListView.TabIndex = 0;
+       
             // 
             // customerListLabel
             // 

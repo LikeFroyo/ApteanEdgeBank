@@ -9,6 +9,7 @@
       <Column Name="AccountOpenedDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="AccountType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="StatusAccount" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Account_Activity" Member="Activities" ThisKey="AccountId" OtherKey="AccoutId" Type="Activity" />
       <Association Name="ApteanBankBranch_Account" Member="ApteanBankBranch" ThisKey="BranchId" OtherKey="BranchId" Type="ApteanBankBranch" IsForeignKey="true" />
       <Association Name="Customer_Account" Member="Customer" ThisKey="CustomerId" OtherKey="CustomerId" Type="Customer" IsForeignKey="true" />
     </Type>
@@ -30,6 +31,16 @@
       <Column Name="customerBranchId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Customer_Account" Member="Accounts" ThisKey="CustomerId" OtherKey="CustomerId" Type="Account" />
       <Association Name="ApteanBankBranch_Customer" Member="ApteanBankBranch" ThisKey="customerBranchId" OtherKey="BranchId" Type="ApteanBankBranch" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Activity" Member="Activities">
+    <Type Name="Activity">
+      <Column Name="ActivityID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AccoutId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ActivityCode" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Account_Activity" Member="Account" ThisKey="AccoutId" OtherKey="AccountId" Type="Account" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

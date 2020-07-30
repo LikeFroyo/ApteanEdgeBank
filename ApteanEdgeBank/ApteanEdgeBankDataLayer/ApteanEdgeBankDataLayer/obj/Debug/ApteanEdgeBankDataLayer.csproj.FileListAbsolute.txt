@@ -5,3 +5,10 @@ C:\Users\aupadhyay\Desktop\Assignments\Assignment_170720\Data\sds\ApteanEdgeBank
 C:\Users\aupadhyay\Desktop\Assignments\Assignment_170720\Data\sds\ApteanEdgeBankDataLayer\ApteanEdgeBankDataLayer\obj\Debug\ApteanEdgeBankDataLayer.csproj.CoreCompileInputs.cache
 C:\Users\aupadhyay\Desktop\Assignments\Assignment_170720\Data\sds\ApteanEdgeBankDataLayer\ApteanEdgeBankDataLayer\obj\Debug\ApteanEdgeBankDataLayer.dll
 C:\Users\aupadhyay\Desktop\Assignments\Assignment_170720\Data\sds\ApteanEdgeBankDataLayer\ApteanEdgeBankDataLayer\obj\Debug\ApteanEdgeBankDataLayer.pdb
+C:\Users\aupadhyay\Desktop\Testing\ProjectApteanEdgeBank\ApteanEdgeBank\ApteanEdgeBankDataLayer\ApteanEdgeBankDataLayer\obj\Debug\ApteanEdgeBankDataLayer.csprojAssemblyReference.cache
+C:\Users\aupadhyay\Desktop\Testing\ProjectApteanEdgeBank\ApteanEdgeBank\ApteanEdgeBankDataLayer\ApteanEdgeBankDataLayer\obj\Debug\ApteanEdgeBankDataLayer.csproj.CoreCompileInputs.cache
+C:\Users\aupadhyay\Desktop\Testing\ProjectApteanEdgeBank\ApteanEdgeBank\ApteanEdgeBankDataLayer\ApteanEdgeBankDataLayer\obj\Debug\ApteanEdgeBankDataLayer.dll
+C:\Users\aupadhyay\Desktop\Testing\ProjectApteanEdgeBank\ApteanEdgeBank\ApteanEdgeBankDataLayer\ApteanEdgeBankDataLayer\obj\Debug\ApteanEdgeBankDataLayer.pdb
+C:\Users\aupadhyay\Desktop\Testing\ProjectApteanEdgeBank\ApteanEdgeBank\ApteanEdgeBankDataLayer\ApteanEdgeBankDataLayer\bin\Debug\ApteanEdgeBankDataLayer.dll.config
+C:\Users\aupadhyay\Desktop\Testing\ProjectApteanEdgeBank\ApteanEdgeBank\ApteanEdgeBankDataLayer\ApteanEdgeBankDataLayer\bin\Debug\ApteanEdgeBankDataLayer.dll
+C:\Users\aupadhyay\Desktop\Testing\ProjectApteanEdgeBank\ApteanEdgeBank\ApteanEdgeBankDataLayer\ApteanEdgeBankDataLayer\bin\Debug\ApteanEdgeBankDataLayer.pdb

@@ -109,6 +109,7 @@
             this.actitivityButton.Text = "Activity Ledger";
             this.actitivityButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.actitivityButton.UseVisualStyleBackColor = true;
+            this.actitivityButton.Click += new System.EventHandler(this.actitivityButton_Click);
             // 
             // ApteanEdgeBankServicesExplorer
             // 

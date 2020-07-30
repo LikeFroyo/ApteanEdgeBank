@@ -110,3 +110,4 @@ C:\Users\aupadhyay\Desktop\Testing\ProjectApteanEdgeBank\ApteanEdgeBank\ApteanEd
 C:\Users\aupadhyay\Desktop\Testing\ProjectApteanEdgeBank\ApteanEdgeBank\ApteanEdgeBank\ApteanEdgeBank\obj\Debug\ApteanEdgeBank.csproj.CopyComplete
 C:\Users\aupadhyay\Desktop\Testing\ProjectApteanEdgeBank\ApteanEdgeBank\ApteanEdgeBank\ApteanEdgeBank\obj\Debug\ApteanEdgeBank.exe
 C:\Users\aupadhyay\Desktop\Testing\ProjectApteanEdgeBank\ApteanEdgeBank\ApteanEdgeBank\ApteanEdgeBank\obj\Debug\ApteanEdgeBank.pdb
+C:\Users\aupadhyay\Desktop\Testing\ProjectApteanEdgeBank\ApteanEdgeBank\ApteanEdgeBank\ApteanEdgeBank\obj\Debug\ApteanEdgeBank.ActivityLedger.resources
