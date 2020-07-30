@@ -27,5 +27,14 @@ namespace ApteanEdgeBank
         {
             this.activityGrid.DataSource = activityDL.GetAllTheActivity(this.Search.Text.Trim());
         }
+
+        private void calculate_Click(object sender, EventArgs e)
+        {
+            var accountID = Int64.Parse(this.Search.Text.Trim());
+            if (activityGrid.DataSource != null)
+            {
+                this.balance.Text = activityDL.Calculate(accountID).ToString();
+            }
+        }
     }
 }
