@@ -1,5 +1,6 @@
 ﻿using ApteanEdgeBankDataLayer;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ApteanEdgeBank
@@ -33,6 +34,12 @@ namespace ApteanEdgeBank
             var accountID = Int64.Parse(this.Search.Text.Trim());
             if (activityGrid.DataSource != null)
             {
+                this.calculateView.Items.Clear();
+                foreach(var item in activityDL.GetAllTheActivity(this.Search.Text.Trim()))
+                {
+
+                    this.calculateView.Items.Add(new ListViewItem(item.Amount.ToString()));
+                }
                 this.balance.Text = activityDL.Calculate(accountID).ToString();
             }
         }

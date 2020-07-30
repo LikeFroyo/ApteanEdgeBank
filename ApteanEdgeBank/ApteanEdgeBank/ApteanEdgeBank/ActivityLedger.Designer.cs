@@ -33,9 +33,12 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.activityGrid = new System.Windows.Forms.DataGridView();
             this.Search = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.calculateView = new System.Windows.Forms.ListView();
             this.calculate = new System.Windows.Forms.Button();
             this.balance = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.Amount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CreditOrDebit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activityGrid)).BeginInit();
             this.SuspendLayout();
@@ -87,14 +90,18 @@
             this.Search.Click += new System.EventHandler(this.Search_Click);
             this.Search.TextChanged += new System.EventHandler(this.Search_TextChanged);
             // 
-            // listView1
+            // calculateView
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(985, 146);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(352, 388);
-            this.listView1.TabIndex = 5;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.calculateView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Amount,
+            this.CreditOrDebit});
+            this.calculateView.HideSelection = false;
+            this.calculateView.Location = new System.Drawing.Point(985, 146);
+            this.calculateView.Name = "calculateView";
+            this.calculateView.Size = new System.Drawing.Size(352, 388);
+            this.calculateView.TabIndex = 5;
+            this.calculateView.UseCompatibleStateImageBehavior = false;
+            this.calculateView.View = System.Windows.Forms.View.Tile;
             // 
             // calculate
             // 
@@ -112,11 +119,18 @@
             this.balance.AutoSize = true;
             this.balance.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.balance.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.balance.Location = new System.Drawing.Point(1085, 626);
+            this.balance.Location = new System.Drawing.Point(1089, 641);
             this.balance.Name = "balance";
             this.balance.Size = new System.Drawing.Size(158, 42);
             this.balance.TabIndex = 7;
             this.balance.Text = "balance";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(1121, 609);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(100, 23);
+            this.progressBar1.TabIndex = 8;
             // 
             // ActivityLedger
             // 
@@ -124,9 +138,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1344, 712);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.balance);
             this.Controls.Add(this.calculate);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.calculateView);
             this.Controls.Add(this.Search);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.activityListLabel);
@@ -151,8 +166,11 @@
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.DataGridView activityGrid;
         private System.Windows.Forms.TextBox Search;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView calculateView;
         private System.Windows.Forms.Button calculate;
         private System.Windows.Forms.Label balance;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ColumnHeader Amount;
+        private System.Windows.Forms.ColumnHeader CreditOrDebit;
     }
 }
