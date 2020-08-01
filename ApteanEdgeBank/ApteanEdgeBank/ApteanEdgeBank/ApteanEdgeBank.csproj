@@ -57,7 +57,7 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>5144E5321B38A113DCDD4381881DD8793B18607A</ManifestCertificateThumbprint>
@@ -67,7 +67,8 @@
     </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>froyo.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <DelaySign>false</DelaySign>
@@ -151,7 +152,7 @@
     <Compile Include="ApteanEdgeBankCustomerExplorer.Designer.cs">
       <DependentUpon>ApteanEdgeBankCustomerExplorer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Driver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CustomerUpdate.cs">
       <SubType>Form</SubType>
@@ -201,7 +202,6 @@
     <EmbeddedResource Include="CustomerUpdate.resx">
       <DependentUpon>CustomerUpdate.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="froyo.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

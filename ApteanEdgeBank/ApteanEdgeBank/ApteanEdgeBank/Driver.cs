@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace ApteanEdgeBank
 {
-    static class Program
+    static class Driver
     {
         /// <summary>
         /// The main entry point for the application.
